@@ -1,10 +1,11 @@
 import {AiOutlineClose, AiOutlineMenu,} from "react-icons/ai"
 import { FaInstagram, FaFacebook,FaLinkedin,FaUserCircle, FaUtensils, FaShoppingCart} from 'react-icons/fa';
-
+import {Link} from "react-router-dom"
 
 import {useState} from "react"
-
+import { cartItems } from "./foodIcons";
 const Navbar = () => {
+    console.log(cartItems.length)
     
     const [nav, setNav] = useState(true)
     const handleNav = () => {
@@ -12,11 +13,12 @@ const Navbar = () => {
     }
     return (
         <div className="text-white flex justify-between items-center h-auto bg-red-400 mx-auto px-4 w-full">
-        <h1 className="w-full text-xl font-bold sm:text-3xl ">Tollis Foodora App.</h1>
+        <h1 className="w-full text-xl font-bold sm:text-3xl "><Link to="/">Tollis Foodora App.</Link></h1>
         <ul className="hidden md:flex uppercase">
             <li className="p-4 cursor-pointer hover:text-red-600 flex text-xl">
           
-            <FaUserCircle size={25}className="mr-2 mt-0.5"/> Login 
+            <FaUserCircle size={25}className="mr-2 mt-0.5"/><Link to="/login">Login
+                </Link>
                  
             </li>
             <li className="p-4 cursor-pointer hover:text-red-600 flex">
@@ -24,8 +26,8 @@ const Navbar = () => {
                    <FaUtensils size={25} className="ml-2 mt-0.5"/>
                     
 </li>
-         <li className="p-4 cursor-pointer hover:text-red-600">
-              <FaShoppingCart size={25} className="ml-2 mt-0.5"/>
+         <li className="p-4 cursor-pointer hover:text-red-600 flex">
+            <Link to="/cart"><FaShoppingCart size={25} className="ml-2 mt-0.5"/></Link><span className=" ml-1 mt-0.5">({cartItems.length})</span>
          </li>
 
         </ul>
@@ -38,8 +40,8 @@ const Navbar = () => {
         <ul className="uppercase p-4">
             <li className="p-4 border-b border-gray-200 cursor-pointer flex font-bold">
            
-            <FaUserCircle size={20}className="mr-2 mt-0.5"/> Login 
-                
+            <FaUserCircle size={20}className="mr-2 mt-0.5"/> <Link to="/login">Login 
+                </Link>
             </li>
             <li className="p-4 border-b border-gray-200 cursor-pointer">
           
